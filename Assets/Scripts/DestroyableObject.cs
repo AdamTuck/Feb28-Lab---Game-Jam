@@ -7,7 +7,16 @@ public class DestroyableObject : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float degradeRate;
 
+    private MeshRenderer blockRenderer;
     private bool isDegrading;
+
+    private float blockAlpha;
+
+    private void Start()
+    {
+        blockRenderer = GetComponent<MeshRenderer>();
+        blockAlpha = 1f;
+    }
 
     void Update()
     {
@@ -19,11 +28,17 @@ public class DestroyableObject : MonoBehaviour
     {
         health -= degradeRate * Time.deltaTime;
 
+        blockAlpha = health / 100;
+
+        blockRenderer.material.color = new Color(1f, 1f, 1f, blockAlpha);
+
         if (health <=0)
         {
             Destroy(gameObject);
         }
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {

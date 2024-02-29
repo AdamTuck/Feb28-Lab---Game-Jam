@@ -25,11 +25,11 @@ public class DestroyableObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision with " + gameObject.name + ": " + collision.gameObject.tag);
+        Debug.Log("Collision with " + gameObject.name + ": " + other.gameObject.tag);
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             isDegrading = true;
         }

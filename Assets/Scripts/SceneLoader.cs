@@ -7,6 +7,6 @@ public class SceneLoader : MonoBehaviour
 {
     public void SceneLoad()
     {
-        SceneManager.LoadScene("Playground Adam");
+        SceneManager.LoadScene("FinalScene");
     }
 }

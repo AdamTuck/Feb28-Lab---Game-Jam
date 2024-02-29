@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - DegradableObject
+  - Lava
   layers:
   - Default
   - TransparentFX
